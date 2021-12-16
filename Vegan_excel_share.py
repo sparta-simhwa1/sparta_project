@@ -38,7 +38,7 @@ for address in addresses:
             data = json.loads(response_body)
             ws.cell(row=count, column=8).value = data['addresses'][0]['y']
             ws.cell(row=count, column=9).value = data['addresses'][0]['x']
-            print(ws.cell(row=count, column=6).value)  # 경도와 위도에 해당하는 x, y값을 출력
+            print(ws.cell(row=count, column=6).value)  # 처리한 주소지 출력
             count += 1 # 행 아래로 내리기 위해 count 값 추가
         except:
             ws.cell(row=count, column=8).value = 'error'
