@@ -5,8 +5,9 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 
-@app.route('/<region>')
-def shop_region(region=None):
+@app.route('/region', methods=['POST'])
+def shop_region():
+    region = request.form['region']
     if region == '서북권':
         users = mongodb.west_north()
     elif region == '도심권':
@@ -20,6 +21,9 @@ def shop_region(region=None):
     else:
         return render_template('vegan.html', region=region)
     return render_template('vegan.html', region=region, datas=users)
+
+
+# return render_template('vegan.html', region=region, datas=users)
 
 
 @app.route('/')
