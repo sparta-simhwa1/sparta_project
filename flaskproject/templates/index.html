@@ -16,31 +16,33 @@
     <label for="input">권역: </label><input type="text" name="region" id="input">
     <input type="submit" value="제출">
 </form>
-<div class="button_region">
-    <form action="{{ url_for('shop_region') }}" method="post">
-        <input type="submit" value="동남권" name="region">
-    </form>
-</div>
-<div class="button_region">
-    <form action="{{ url_for('shop_region') }}" method="post">
-        <input type="submit" value="동북권" name="region">
-    </form>
-</div>
-<div class="button_region">
-    <form action="{{ url_for('shop_region') }}" method="post">
-        <input type="submit" value="도심권" name="region">
-    </form>
-</div>
-<div class="button_region">
-    <form action="{{ url_for('shop_region') }}" method="post">
-        <input type="submit" value="서북권" name="region">
-    </form>
-</div>
-<div class="button_region">
-    <form action="{{ url_for('shop_region') }}" method="post">
-        <input type="submit" value="서남권" name="region">
-    </form>
-</div>
+{% for reg in ['동남권','동북권','도심권','서북권','서남권'] %}
+    <div class="button_region">
+        <form action="{{ url_for('shop_region') }}" method="post">
+            <input type="submit" value="{{ reg }}" name="region">
+        </form>
+    </div>
+{% endfor %}
+{#    <div class="button_region">#}
+{#        <form action="{{ url_for('shop_region') }}" method="post">#}
+{#            <input type="submit" value="동북권" name="region">#}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="button_region">#}
+{#        <form action="{{ url_for('shop_region') }}" method="post">#}
+{#            <input type="submit" value="도심권" name="region">#}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="button_region">#}
+{#        <form action="{{ url_for('shop_region') }}" method="post">#}
+{#            <input type="submit" value="서북권" name="region">#}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="button_region">#}
+{#        <form action="{{ url_for('shop_region') }}" method="post">#}
+{#            <input type="submit" value="서남권" name="region">#}
+{#        </form>#}
+{#    </div>#}
 
 {% if datas %}
     <h1>{{ region }}가게 리스트</h1>
