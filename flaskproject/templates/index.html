@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+    <title>Index from Flask</title>
+    <style>
+        .button_region {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>주소 뒤에 원하는 가게가 속하는 권을 써주세요!</h1>
+<h2>ex)/동남권</h2>
+
+<form action="{{ url_for('shop_region') }}" method="post">
+    <label for="input">권역: </label><input type="text" name="region" id="input">
+    <input type="submit" value="제출">
+</form>
+<div class="button_region">
+    <form action="{{ url_for('shop_region') }}" method="post">
+        <input type="submit" value="동남권" name="region">
+    </form>
+</div>
+<div class="button_region">
+    <form action="{{ url_for('shop_region') }}" method="post">
+        <input type="submit" value="동북권" name="region">
+    </form>
+</div>
+<div class="button_region">
+    <form action="{{ url_for('shop_region') }}" method="post">
+        <input type="submit" value="도심권" name="region">
+    </form>
+</div>
+<div class="button_region">
+    <form action="{{ url_for('shop_region') }}" method="post">
+        <input type="submit" value="서북권" name="region">
+    </form>
+</div>
+<div class="button_region">
+    <form action="{{ url_for('shop_region') }}" method="post">
+        <input type="submit" value="서남권" name="region">
+    </form>
+</div>
+
+{% if datas %}
+    <h1>{{ region }}가게 리스트</h1>
+    <ul>
+        {% for data in datas %}
+            <li><h3>상호명:{{ data['상호명'] }}</h3></li>
+            <li><h4>업종:{{ data['업종'] }}</h4></li>
+            <li><h4>자치구:{{ data['자치구'] }}</h4></li>
+            <li><h4>도로명주소:{{ data['도로명주소'] }}</h4></li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3> 현재 검색 가능 권역</h3>
+    <ul>
+        <li>동북권</li>
+        <li>동남권</li>
+        <li>도심권</li>
+        <li>서북권</li>
+        <li>서남권</li>
+    </ul>
+{% endif %}
+</body>
