@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request
 from app import mongodb
-from pymongo import MongoClient
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
 def shop_region():
-    region = request.form['region']
+    region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
     if region == '서북권':
         users = mongodb.west_north()
     elif region == '도심권':
@@ -30,6 +29,11 @@ def shop_region():
 def index():
     """route 데코레이션을 통해 어떤 URL 이 우리가 작성한 함수를 실행시키는지 알려준다."""
     return render_template('index.html')
+
+
+@app.route('/map/')
+def kakao_map():
+    return render_template('test.html')
 
 
 if __name__ == '__main__':
