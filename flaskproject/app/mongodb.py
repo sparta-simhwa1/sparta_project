@@ -33,7 +33,7 @@ def east_south():
 
 def west_south():
     users = collection.find({"$or": [{'자치구': '강서구'}, {'자치구': '양천구'}, {'자치구': '구로구'}, {'자치구': '영등포구'}, {'자치구': '동작구'},
-                                     {'자치구': '금천구'}, {'_id': False}]})
+                                     {'자치구': '금천구'}, {'자치구': '관악구'}, {'_id': False}]})
     return users
 # users = seobuk()
 # for user in users:
