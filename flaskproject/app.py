@@ -1,34 +1,44 @@
 from flask import Flask, render_template, request
 from app import mongodb
+from pymongo import MongoClient
 
 app = Flask(__name__)
+client = MongoClient('localhost', 27017)
+db = client.vegan
+collection = db['vegan']
 
+
+# @app.route('/', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
+# def shop_region():
+#     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
+#     if region == '서북권':
+#         users = mongodb.west_north()
+#     elif region == '도심권':
+#         users = mongodb.dosim()
+#     elif region == '동북권':
+#         users = mongodb.east_north()
+#     elif region == '서남권':
+#         users = mongodb.west_south()
+#     elif region == '동남권':
+#         users = mongodb.east_south()
+#     else:
+#         return render_template('main.html', region=region)
+#     return render_template('main.html', region=region, datas=users)
 
 @app.route('/', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
 def shop_region():
     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
-    if region == '서북권':
-        users = mongodb.west_north()
-    elif region == '도심권':
-        users = mongodb.dosim()
-    elif region == '동북권':
-        users = mongodb.east_north()
-    elif region == '서남권':
-        users = mongodb.west_south()
-    elif region == '동남권':
-        users = mongodb.east_south()
-    else:
-        return render_template('index.html', region=region)
-    return render_template('index.html', region=region, datas=users)
+    users = collection.find({"$or": [{'자치구': region}, {'_id': False}]})
+    if users is None:
+        return render_template('main.html', region=region)
 
-
-# return render_template('vegan.html', region=region, datas=users)
+    return render_template('main.html', region=region, datas=users)
 
 
 @app.route('/')
 def index():
     """route 데코레이션을 통해 어떤 URL 이 우리가 작성한 함수를 실행시키는지 알려준다."""
-    return render_template('index.html')
+    return render_template('main.html')
 
 
 @app.route('/map/')
