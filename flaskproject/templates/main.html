@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채소숲</title>
     <link rel="stylesheet" href="../static/css/style.css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
 </head>
 <body>
 <div class="logo">  <!--로고사진 수정필요-->
     <img src="logo.jfif" alt="로고" style="width: 100%; height: 200px;">
 </div>
+<<<<<<< HEAD
 <div class="wrapper">
     <div class="menu">
         <button class="menu" id="01">서울 채식 지도</button>
@@ -83,6 +87,72 @@
                 <li><p>업종:{{ data['업종'] }}</p></li>
                 <li><p>자치구:{{ data['자치구'] }}</p></li>
                 <li><p>도로명주소:{{ data['도로명주소'] }}</p></li>
+=======
+<div class="menu"> <!--메뉴탭 css처리필요-->
+    <button class="menu-0">공백</button> <!--사이즈조절용 양끝버튼 기능없을무-->
+    <button class="menu-1">서울 채식 지도</button>
+    <button class="menu-2">검색</button>
+    <button class="menu-3">채식의 종류</button>
+    <button class="menu-4">공백</button>
+</div>
+<div class="tap">
+    <div class="menu-map"> <!--메뉴탭 중 서울채식지도-->
+        <p>서울 채식 지도</p>
+        <button class="dosim">도심권</button>
+        <button class="dongnam">동남권</button> <!--서초구,강남구,송파구,강동구-->
+        <button class="seonam">서남권</button> <!--양천구,강서구,구로구,금천구,영등포구,동작구,관악구-->
+        <button class="seobook">서북권</button> <!--은평구,서대문구,마포구-->
+        <button class="dongbook">동북권</button> <!--성북구,광진구,동대문구,중랑구,성북구,강북구,도봉구,노원구-->
+    </div>
+    <div class="detailgu">
+        <div class="detail-dosim"> <!--클릭시 나오는 탭(js로 toggle구현)-->
+            {% for region in ['종로구', '중구', '용산구'] %}
+                <form action="{{ url_for('shop_region') }}" method="post">
+                    <input type="submit" value={{ region }} name=region>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="detail-dongnam">
+            {% for region in ['서초구', '강남구', '송파구','강동구'] %}
+                <form action="{{ url_for('shop_region') }}" method="post">
+                    <input type="submit" value={{ region }} name=region>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="detail-seonam">
+            {% for region in ['양천구', '강서구', '구로구','금천구','영등포구','동작구','관악구'] %}
+                <form action="{{ url_for('shop_region') }}" method="post">
+                    <input type="submit" value={{ region }} name=region>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="detail-seobook">
+            {% for region in ['은평구', '서대문구', '마포구'] %}
+                <form action="{{ url_for('shop_region') }}" method="post">
+                    <input type="submit" value={{ region }} name=region>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="detail-dongbook">
+            {% for region in ['성동구', '광진구', '동대문구','중랑구','성북구','강북구','도봉구','노원구'] %}
+                <form action="{{ url_for('shop_region') }}" method="post">
+                    <input type="submit" value={{ region }} name=region>
+                </form>
+            {% endfor %}
+        </div>
+    </div>
+
+    <p>지도</p>
+    <p>리스트</p>
+    {% if datas %}
+        <h1>{{ region }}가게 리스트</h1>
+        <ul>
+            {% for data in datas %}
+                <li><h3>상호명:{{ data['상호명'] }}</h3></li>
+                <li><h4>업종:{{ data['업종'] }}</h4></li>
+                <li><h4>자치구:{{ data['자치구'] }}</h4></li>
+                <li><h4>도로명주소:{{ data['도로명주소'] }}</h4></li>
+>>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
                 <hr>
             {% endfor %}
         </ul>
@@ -94,7 +164,13 @@
             {% endfor %}
         </ul>
     {% endif %}
+<<<<<<< HEAD
 </div>
+=======
+
+</div>
+<!--버튼사이즈-->
+>>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
 <script src="../static/js/script.js"></script>
 </body>
 </html>
