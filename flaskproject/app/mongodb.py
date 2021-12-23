@@ -13,7 +13,7 @@ collection.insert_many(data_dict)
 # def west_north():
 #     users = collection.find({"$or": [{'자치구': '은평구'}, {'자치구': '서대문구'}, {'자치구': '마포구'}, {'_id': False}]})
 #     return users
-# 
+#
 #
 # def east_north():
 #     users = collection.find({"$or": [{'자치구': '도봉구'}, {'자치구': '노원구'}, {'자치구': '중랑구'}, {'자치구': '광진구'}, {'자치구': '동대문구'},

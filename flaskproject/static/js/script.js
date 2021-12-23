@@ -12,31 +12,31 @@ const detailseobook = document.querySelector(".d");
 const detaildongbook = document.querySelector(".e");
 //function
 function toggleDosim(){
-  detaildosim.style.display = (detaildosim.style.display == "none") ? "block" : "none";
+  detaildosim.style.display = (detaildosim.style.display === "none") ? "block" : "none";
   detaildongnam.style.display="none";
   detailseonam.style.display="none";
   detailseobook.style.display="none";
   detaildongbook.style.display="none";}
 function toggleDongnam() {
-  detaildongnam.style.display = (detaildongnam.style.display == 'none') ? "block" : "none";
+  detaildongnam.style.display = (detaildongnam.style.display === 'none') ? "block" : "none";
   detaildosim.style.display="none";
   detailseonam.style.display="none";
   detailseobook.style.display="none";
   detaildongbook.style.display="none";}
 function toggleSeonam() {
-  detailseonam.style.display = (detailseonam.style.display == 'none') ? "block" : "none";
+  detailseonam.style.display = (detailseonam.style.display === 'none') ? "block" : "none";
   detaildosim.style.display="none";
   detaildongnam.style.display="none";
   detailseobook.style.display="none";
   detaildongbook.style.display="none";}
 function toggleSeobook() {
-  detailseobook.style.display = (detailseobook.style.display == 'none') ? "block" : "none";
+  detailseobook.style.display = (detailseobook.style.display === 'none') ? "block" : "none";
   detaildosim.style.display="none";
   detaildongnam.style.display="none";
   detailseonam.style.display="none";
   detaildongbook.style.display="none";}
 function toggleDongbook() {
-  detaildongbook.style.display = (detaildongbook.style.display == 'none') ? "block" : "none";
+  detaildongbook.style.display = (detaildongbook.style.display === 'none') ? "block" : "none";
   detaildosim.style.display="none";
   detaildongnam.style.display="none";
   detailseonam.style.display="none";
