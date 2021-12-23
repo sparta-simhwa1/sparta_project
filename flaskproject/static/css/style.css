@@ -1,13 +1,8 @@
 .logo {
-<<<<<<< HEAD
-=======
-
->>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
     margin-top: 0;
     padding-top: 0;
 }
 
-<<<<<<< HEAD
 .wrapper{ /*뤠풜에용*/
     margin-top: 20px;
     margin-left: 15%;
@@ -37,37 +32,6 @@
 }
 
 .district { /*자치구 css*/
-=======
-form{
-    display: inline-block;
-}
-
-.tap {
-    margin-top: 20px;
-    margin-left: 15%;
-    border: solid 1px grey;
-    border-radius: 20px;
-    width: 70%;
-}
-
-.menu-0, .menu-1, .menu-2, .menu-3, .menu-4 {
-    width: 20%;
-    height: 50px;
-    margin-right: -6px;
-}
-
-.menu button {
-    border: 1px solid bisque;
-    background-color: bisque;
-}
-
-.menu button:hover {
-    color: white;
-    background-color: black;
-}
-
-.menu-map button {
->>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
     border: 1px solid grey;
     background-color: white;
     border-radius: 20px;
@@ -76,7 +40,6 @@ form{
     width: 70px;
     height: 40px;
 }
-<<<<<<< HEAD
 .detailgu { /*세부구 css*/
     border: 1px solid grey;
     background-color: white;
@@ -87,5 +50,3 @@ form{
     margin-right:-30px;
     margin-top:5px;
 }
-=======
->>>>>>> 5dfce128f805c86f7bf0e8070f807b27f858d5a0
