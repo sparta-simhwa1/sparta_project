@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
-from app import mongodb
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
+from bson.json_util import dumps
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
@@ -8,31 +8,13 @@ db = client.vegan
 collection = db['vegan']
 
 
-# @app.route('/', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
-# def shop_region():
-#     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
-#     if region == '서북권':
-#         users = mongodb.west_north()
-#     elif region == '도심권':
-#         users = mongodb.dosim()
-#     elif region == '동북권':
-#         users = mongodb.east_north()
-#     elif region == '서남권':
-#         users = mongodb.west_south()
-#     elif region == '동남권':
-#         users = mongodb.east_south()
-#     else:
-#         return render_template('main.html', region=region)
-#     return render_template('main.html', region=region, datas=users)
-
-@app.route('/', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
+@app.route('/data', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
 def shop_region():
     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
-    users = collection.find({"$or": [{'자치구': region}, {'_id': False}]})
-    if users is None:
-        return render_template('main.html', region=region)
-
-    return render_template('main.html', region=region, datas=users)
+    users = collection.find({"자치구": region},
+                            {'_id': False, '판매메뉴': False, 'index': False, '경도': False, '위도': False})
+    data = dumps(users, ensure_ascii=False)
+    return data
 
 
 @app.route('/')
