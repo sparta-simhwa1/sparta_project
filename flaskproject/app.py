@@ -15,7 +15,7 @@ collection = db['vegan']
 def shop_region():
     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
     users = collection.find({"자치구": region},
-                            {'_id': False, '판매메뉴': False, 'index': False, '경도': False, '위도': False})
+                            {'_id': False, '판매메뉴': False, 'index': False})
     data = dumps(users, ensure_ascii=False)  # 현재 pymongo 로 불러온 cursor 타입 데이터를 json으로 변환
     # 한글 인코딩 깨짐을 막기위해 ensure_ascii = False 추가
     return data
