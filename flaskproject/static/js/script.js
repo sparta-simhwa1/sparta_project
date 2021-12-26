@@ -117,22 +117,27 @@ function showShop() {
         let location = test[i]['도로명주소'];
         let latitude = test[i]['위도'];
         let longitude = test[i]['경도']
-        let temp_html = `<li>상호명 : ${name}</li>
-<li>도로명주소 : ${location}</li>`
+        let img = test[i]['이미지']
+        let temp_html = `<div><a href="https://map.naver.com/v5/search/${name}">
+<img src="${img}" onerror="this.src=../static/img/carrot.jpg">
+<p>상호명 : ${name}</p>
+<p>도로명주소 : ${location}</p></a>
+</div>`
+
         $('#list-box').append(temp_html)
         positions.push(
-            {
-              title: name,
-              latlng: new kakao.maps.LatLng(latitude, longitude) //가져온 위 경도 값 넣어주기
-            },)
+          {
+            title: name,
+            latlng: new kakao.maps.LatLng(latitude, longitude) //가져온 위 경도 값 넣어주기
+          },)
         center_lat = test[i]['위도'];
         center_lon = test[i]['경도'];
       }
       let mapContainer = document.getElementById('map'), // 지도를 표시할 div
-          mapOption = {
-            center: new kakao.maps.LatLng(center_lat, center_lon), // 지도의 중심좌표
-            level: 7 // 지도의 확대 레벨
-          };
+        mapOption = {
+          center: new kakao.maps.LatLng(center_lat, center_lon), // 지도의 중심좌표
+          level: 7 // 지도의 확대 레벨
+        };
 
       let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
       let imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
