@@ -14,12 +14,19 @@ collection = db['vegan']
 @app.route('/data', methods=['POST'])  # POST 요청을 위해 methods=['POST'] 추가
 def shop_region():
     region = request.form['region']  # 페이지에서 POST 요청한 값을 받아오기 위해 request.form['보내온 데이터 이름'] 추가
-    users = collection.find({"자치구": region},
-                            {'_id': False, '판매메뉴': False, 'index': False})
+    users = collection.find({"자치구": region}, {'_id': False, '판매메뉴': False, 'index': False})
     data = dumps(users, ensure_ascii=False)  # 현재 pymongo 로 불러온 cursor 타입 데이터를 json으로 변환
     # 한글 인코딩 깨짐을 막기위해 ensure_ascii = False 추가
     return data
 
+
+@app.route('/search', methods=['POST'])
+def shop_search():
+    search = request.form['search']
+    search_shop = collection.find({'$or': [{'자치구': search}, {'업종': search}, {'도로명주소': search}, {'상호명': search}]}, {'_id': False, 'index': False, '연번': False})
+    data = dumps(search_shop, ensure_ascii=False)
+
+    return data
 
 @app.route('/')
 def index():

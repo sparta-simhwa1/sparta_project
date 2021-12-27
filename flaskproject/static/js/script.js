@@ -100,6 +100,35 @@ mapSeonam.addEventListener("click", toggleSeonam);
 mapSeobook.addEventListener("click", toggleSeobook);
 mapDongbook.addEventListener("click", toggleDongbook);
 
+function searchShop() {
+  $('#search-box').empty()
+  let search = event.target.value;
+  $.ajax({
+    type: "POST",
+    url: "/search",
+    data: {search: search},
+    success: function (response) {
+      console.log(response)
+      let test = JSON.parse(response)
+      for (let i = 0; i < test.length; i++) {
+        let name = test[i]['상호명'];
+        let location = test[i]['도로명주소'];
+        let latitude = test[i]['위도'];
+        let longitude = test[i]['경도']
+        let img = test[i]['이미지']
+        let temp_html = `<div>
+<a href="https://map.naver.com/v5/search/${name}" target="_blank">
+  <img src="${img}" onerror="this.src=../static/img/carrot.jpg">
+  <p>상호명 : ${name}</p>
+  <p>도로명주소 : ${location}</p>
+</a>
+</div>`
+        $('#search-box').append(temp_html)
+      }
+    }
+  })
+}
+
 function showShop() {
   $('#list-box').empty() // 다른 지역을 누를때마다 기존 리스트 지우기
   let region = event.target.value // 현재 이벤트가 발생한 객체의 값을 가져오기
@@ -118,12 +147,14 @@ function showShop() {
         let latitude = test[i]['위도'];
         let longitude = test[i]['경도']
         let img = test[i]['이미지']
-        let temp_html = `<div><a href="https://map.naver.com/v5/search/${name}">
-<img src="${img}" onerror="this.src=../static/img/carrot.jpg">
-<p>상호명 : ${name}</p>
-<p>도로명주소 : ${location}</p></a>
+        let temp_html = `<div>
+<a href="https://map.naver.com/v5/search/${name}" target="_blank">
+  <img src="${img}" onerror="this.src=../static/img/carrot.jpg">
+  <p>상호명 : ${name}</p>
+  <p>도로명주소 : ${location}</p>
+</a>
 </div>`
-
+        
         $('#list-box').append(temp_html)
         positions.push(
           {
@@ -138,17 +169,17 @@ function showShop() {
           center: new kakao.maps.LatLng(center_lat, center_lon), // 지도의 중심좌표
           level: 7 // 지도의 확대 레벨
         };
-
+      
       let map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
       let imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
       for (var i = 0; i < positions.length; i++) {
-
+        
         // 마커 이미지의 이미지 크기 입니다
         let imageSize = new kakao.maps.Size(24, 35);
-
+        
         // 마커 이미지를 생성합니다
         let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
+        
         // 마커를 생성합니다
         let marker = new kakao.maps.Marker({
           map: map, // 마커를 표시할 지도
