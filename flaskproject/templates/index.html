@@ -17,6 +17,7 @@
     <label for="input">권역: </label><input type="text" name="region" id="input">
     <input type="submit" value="제출">
 </form>
+
 {% for reg in ['동남권','동북권','도심권','서북권','서남권'] %}
     <div class="button_region">
         <form action="{{ url_for('shop_region') }}" method="post">
