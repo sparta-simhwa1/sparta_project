@@ -289,8 +289,10 @@
           </div>
           <div id="tab-panel2" class="tabpanel" role="tabpanel" aria-labelledby="tab2" hidden="" tabindex="0">
             <div class="tabpanel2-main">
-              <button type="submit" value="발우공양" name="search" onclick="searchShop(this)">버튼</button>
-              <p>리스트</p>
+              <form onsubmit="return false;" id="searchForm">
+                <input type="text" id="inputSearch" style="border: 1px solid black">
+                <button id="btnSearch" name="search" onclick="searchShop()" style="border: 1px solid black">검색하기</button>
+              </form>
               <ul id="search-box"></ul>
             </div>
           </div>
