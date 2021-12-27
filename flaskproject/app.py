@@ -23,10 +23,13 @@ def shop_region():
 @app.route('/search', methods=['POST'])
 def shop_search():
     search = request.form['search']
-    search_shop = collection.find({'$or': [{'자치구': search}, {'업종': search}, {'도로명주소': search}, {'상호명': search}]}, {'_id': False, 'index': False, '연번': False})
+    search_shop = collection.find(
+        {'$or': [{'자치구': {'$regex': search}}, {'업종': {'$regex': search}}, {'도로명주소': {'$regex': search}}, {
+            '상호명': {'$regex': search}}]}, {'_id': False, 'index': False, '연번': False})
     data = dumps(search_shop, ensure_ascii=False)
 
     return data
+
 
 @app.route('/')
 def index():

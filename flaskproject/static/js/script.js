@@ -103,7 +103,6 @@ mapDongbook.addEventListener("click", toggleDongbook);
 function searchShop() {
     $('#search-box').empty()
     let search = $("#inputSearch").val();
-    console.log(`${search} test`)
     $.ajax({
         type: "POST",
         url: "/search",
