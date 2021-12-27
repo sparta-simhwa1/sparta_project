@@ -154,7 +154,10 @@
   function focusFirstTab() {
     tabs[0].focus();
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e4777f055a982496fa1e4008aca9ab6c5bcd36a
   function focusLastTab() {
     tabs[tabs.length - 1].focus();
   }
@@ -210,4 +213,8 @@
       activateTab(target, false);
     }
   }
+<<<<<<< HEAD
 })();
+=======
+})();
+>>>>>>> 4e4777f055a982496fa1e4008aca9ab6c5bcd36a
