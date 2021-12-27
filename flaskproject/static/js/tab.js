@@ -154,6 +154,7 @@
   function focusFirstTab() {
     tabs[0].focus();
   }
+
   function focusLastTab() {
     tabs[tabs.length - 1].focus();
   }
