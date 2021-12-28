@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .label {
   margin-bottom: 96px;
 }
@@ -32,11 +34,6 @@
   width: 6px;
 }
 
-.wrap * {
-  padding: 0;
-  margin: 0;
-}
-
 .wrap .info {
   width: 286px;
   height: 120px;
@@ -62,13 +59,14 @@
 }
 
 .info .close {
+  display: block;
   position: absolute;
   top: 10px;
   right: 10px;
   color: #888;
-  width: 17px;
-  height: 17px;
-  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+  width: 30px;
+  height: 30px;
+  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png') cover;
 }
 
 .info .close:hover {
@@ -122,9 +120,4 @@
 
 .info .link {
   color: #5085bb;
-}
-
-.logo {
-  margin-top: 0;
-  padding-top: 0;
 }

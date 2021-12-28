@@ -19,10 +19,10 @@
 
 <script>
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-      mapOption = {
-        center: new kakao.maps.LatLng(37.5739037, 126.9832035), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-      };
+    mapOption = {
+      center: new kakao.maps.LatLng(37.5739037, 126.9832035), // 지도의 중심좌표
+      level: 3 // 지도의 확대 레벨
+    };
   // 지도를 표시할 div와 지도 옵션으로 지도를 생성합니다
   var map = new kakao.maps.Map(mapContainer, mapOption);
   var markerPosition = new kakao.maps.LatLng(37.5739037, 126.9832035);
@@ -31,9 +31,9 @@
   });
   marker.setMap(map);
   var iwContent = '<div style="padding:5px;">발우공양 <br><a href="https://map.kakao.com/link/map/발우공양,37.5739037,126.9832035" ' +
-          'style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/발우공양,37.5739037,126.9832035" ' +
-          'style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-      iwPosition = new kakao.maps.LatLng(37.5739037, 126.9832035); //인포윈도우 표시 위치입니다
+      'style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/발우공양,37.5739037,126.9832035" ' +
+      'style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng(37.5739037, 126.9832035); //인포윈도우 표시 위치입니다
 
   // 인포윈도우를 생성합니다
   var infowindow = new kakao.maps.InfoWindow({
