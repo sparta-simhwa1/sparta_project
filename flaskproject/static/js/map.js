@@ -27,7 +27,10 @@ function showShop() {
                 $('#list-box').append(temp_html)
                 positions.push(
                   {
-                      content: `<div class ="label"><span class="left"></span><span class="center">${name}</span><span class="right"></span></div>`,
+                      content: `<div style= "width:150px; height: auto;">
+                      <div style="padding:5px; text-align:center; color:#000; font-weight:bold;">${name}</div>
+                      <div style="padding:5px; text-align:center; font-size:15px"><a href="https://map.naver.com/v5/search/${name}" target="_blank">네이버 지도 보기</a></div>
+                      </div>`,
                       title: name,
                       latlng: new kakao.maps.LatLng(latitude, longitude) //가져온 위 경도 값 넣어주기
                   },)
