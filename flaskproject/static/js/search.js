@@ -24,6 +24,7 @@ function searchShop() {
     },
   });
 }
-// function clearShop() {
-//   $('#search-box').empty();
-// }
+// 초기화
+function clearShop() {
+  $('#search-box').empty();
+}

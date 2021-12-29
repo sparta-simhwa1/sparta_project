@@ -6,12 +6,13 @@
 
 .district-box .map_flex_container .district {
   float: left;
+  margin-left: 50px;
 }
 
 .district {
   background-color: #f1f1f1;
   border-radius: 5px;
-  margin-left: 20px;
+  margin-left: 40px;
   width: 100px;
   height: 50px;
   box-shadow: 0 0 0.4em hsl(60, 2%, 38%);
@@ -34,10 +35,14 @@
   display: inline-block;
   width: 80px;
   height: 40px;
-  margin-left: 20px;
+  margin-left: 30px;
   box-shadow: 0 0 0.4em hsl(60, 2%, 38%);
   font-weight: 400;
   font-size: 16px;
+}
+
+.detail li:first-child {
+  margin-left: 25px;
 }
 
 .district-box button:hover {

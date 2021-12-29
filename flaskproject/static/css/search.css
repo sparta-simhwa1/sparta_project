@@ -3,12 +3,12 @@
 .search_area {
   position: absolute;
   margin-top: -100px;
-  margin-left: 350px;
+  margin-left: 300px;
   display: block;
 }
 .search_area .search_window {
   position: relative;
-  width: 500px;
+  width: 616px;
   height: 52px;
   border: 2px solid #89a831;
   border-radius: 2px;
@@ -17,9 +17,9 @@
 }
 
 .search {
-  width: 444px;
+  width: 455px;
   height: 24px;
-  padding: 13px 15px;
+  padding: 15px 14px;
   margin: 1px;
   background: #fff;
   font-size: 18px;
@@ -31,7 +31,7 @@
 .search_area .search-button {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 56px;
   bottom: 0;
   width: 56px;
   height: 52px;
@@ -44,7 +44,7 @@
 .search_area .reset-button {
   position: absolute;
   top: 0;
-  right: -56px;
+  right: 0px;
   bottom: 0;
   width: 56px;
   height: 52px;
@@ -56,8 +56,8 @@
 
 .search-button .icon_search {
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   vertical-align: top;
   background: url('../img/icon-search.png');
 }
@@ -68,6 +68,15 @@
   justify-content: space-evenly;
   margin-top: 100px;
 }
+
+.reset-button .icon_reset {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+  background: url('../img/icon-reset.png');
+}
+
 .full_list {
   margin-top: 10px;
 }
