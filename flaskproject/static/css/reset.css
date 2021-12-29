@@ -1,26 +1,14 @@
 @charset "UFT-8";
 
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-p,
-button {
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 100%;
+button,
+input,
+select,
+table,
+textarea {
+  font-size: 12px;
+  line-height: 16px;
+  color: #202020;
 }
 
 ul {
@@ -53,9 +41,11 @@ a:active {
   cursor: pointer;
 }
 
-img {
+img,
+fieldset {
   border: none;
   vertical-align: top;
+  min-inline-size: min-content;
 }
 
 img,
@@ -77,13 +67,19 @@ button {
   color: inherit;
 }
 
-address {
-  font-style: normal;
-}
-
 header,
 nav,
 section,
 footer {
   display: block;
+}
+
+legend {
+  display: block;
+  padding-inline-start: 2px;
+  padding-inline-end: 2px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
 }
