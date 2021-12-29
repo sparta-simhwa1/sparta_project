@@ -13,15 +13,17 @@ function searchShop() {
         let latitude = test[i]['위도'];
         let longitude = test[i]['경도'];
         let img = test[i]['이미지'];
-        let temp_html = `<div>
-<a href="https://map.naver.com/v5/search/${name}" target="_blank">
-  <img src="${img}" onerror="this.src=../static/img/carrot.jpg">
-  <p>상호명 : ${name}</p>
-  <p>도로명주소 : ${location}</p>
-</a>
-</div>`;
+        let temp_html = `<div class="full_list"><div class="list-item"><a href="https://map.naver.com/v5/search/${name}">
+        <img src="${img}" onerror="this.src=../static/img/carrot.jpg">
+        <p class="shopName">상호명 : ${name}</p>
+        <p class="shopAdd">도로명주소 : ${location}</p></a>
+        </div>
+        </div>`;
         $('#search-box').append(temp_html);
       }
     },
   });
 }
+// function clearShop() {
+//   $('#search-box').empty();
+// }

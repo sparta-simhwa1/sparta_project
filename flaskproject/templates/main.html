@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/common.css" />
     <link rel="stylesheet" href="../static/css/main-map.css" />
     <link rel="stylesheet" href="../static/css/map-label.css">
+    <link rel="stylesheet" href="../static/css/search.css">
     <link rel="stylesheet" href="../static/js/kindofvegejs.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../static/js/script.js" defer></script>
@@ -21,6 +22,7 @@
   <body>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69b8e1f84a0fbc6485af731d54d1970a"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+    <!-- 웹접근성 -->
     <div id="skip">
       <a href="#main_page">본문 바로가기</a>
     </div>
@@ -31,12 +33,13 @@
             <h1 class="logo_default">
               <a href="#" class="logo">
                 <img src="../static/img/logo.png" alt="로고" />
+                <!-- 웹접근성 -->
                 <span class="blind">채식숲</span>
               </a>
             </h1>
             <div class="gnb_box">
-              <a href="#">회원가입</a>
-              <a href="#">로그인</a>
+              <a href="#" onclick="alert('준비중입니다')" class="gnb_a">회원가입</a>
+              <a href="#" onclick="alert('준비중입니다')" class="gnb_b">로그인</a>
             </div>
           </div>
         </div>
@@ -52,7 +55,7 @@
             </div>
           </div>
         </div>
-        <div class="container_inner">
+        <div class="container_inner ">
           <h2 id="main_page" class="blind">본문</h2>
           <div class="main_content">
             <div class="tab_menu">
@@ -76,7 +79,7 @@
                 </ul>
               </div>
             </div>
-            <div class="tab_content">
+            <div class="tab_content mix_inner">
               <div id="tab-panel1" class="tabpanel" role="tabpanel" aria-labelledby="tab1" tabindex="0">
                 <div class="tabpanel1-main">
                   <div class="district-box">
@@ -128,11 +131,25 @@
                 </div>
               </div>
               <div id="tab-panel2" class="tabpanel" role="tabpanel" aria-labelledby="tab2" hidden="" tabindex="0">
-                <form onsubmit="return false;" id="searchForm">
-                  <input type="text" id="inputSearch" style="border: 1px solid black" />
-                  <button id="btnSearch" name="search" onclick="searchShop()" style="border: 1px solid black">검색하기</button>
+                <div class="search_area">
+                  <form name="form" onsubmit="return false;" id="searchForm" role="search">
+                    <fieldset>
+                      <!-- 웹접근성 -->
+                      <legend class="blind">검색</legend>
+                      <div class="search_window">
+                        <input class="search" type="text" id="inputSearch" placeholder="검색어를 입력하세요" /></div>
+                      <button id="btnSearch" class="search-button" name="search" onclick="searchShop()">
+                        <span class="blind">검색</span>
+                        <span class="icon_search"></span>
+                      </button>
+                      <!-- 초기화 -->
+                      <!-- <button type="reset" id="btnReset" class="reset-button onclick="clearShop()">초기화</button> -->
+                    </fieldset>
                   </form>
+                </div>
+                  <div class="search-list">
                   <ul id="search-box"></ul>
+                </div>
               </div>
               <div id="tab-panel3" class="tabpanel" role="tabpanel" aria-labelledby="tab3" hidden="" tabindex="0">
                 <div class="kind_wrap">
