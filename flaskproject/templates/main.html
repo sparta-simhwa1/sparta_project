@@ -15,9 +15,9 @@
   <script src="../static/js/tab.js" defer></script>
 </head>
 <body>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=69b8e1f84a0fbc6485af731d54d1970a"></script>
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0805f4a9e32c8dadc9bc88a1abd20618"></script> -->
 <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0805f4a9e32c8dadc9bc88a1abd20618&libraries=services,clusterer,drawing"></script>
 <div id="skip">
   <a href="#main_page">본문 바로가기</a>
 </div>
@@ -293,6 +293,7 @@
               <form onsubmit="return false;" id="searchForm">
                 <input type="text" id="inputSearch" style="border: 1px solid black">
                 <button id="btnSearch" name="search" onclick="searchShop()" style="border: 1px solid black">검색하기</button>
+                <button type="reset" id="btnReset" onclick="clearShop()" style="border: 1px solid black">초기화</button>
               </form>
               <ul id="search-box"></ul>
             </div>

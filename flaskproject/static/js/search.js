@@ -25,3 +25,8 @@ function searchShop() {
         }
     })
 }
+
+function clearShop() {
+    $('#search-box').empty()
+    
+}
